@@ -36,3 +36,26 @@ li {
   max-width: 600px;
   margin: 30 auto;
 }
+
+.overview {
+  margin-bottom: 20px;
+}
+
+.weather-temperature img {
+  margin-right: 5px;
+  height: 64 px;
+  width: 64 px;
+}
+
+.weather-temperature strong {
+  color: #0e0d0d;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400px;
+}
+
+.weather-temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
+}
