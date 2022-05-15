@@ -28,6 +28,8 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
+  celsiusTemp = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -35,11 +37,26 @@ function displayTemperature(response) {
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  console.log(response);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
+function displayFahTemp(event) {
+  event.preventDefault();
+  let fahTemp = (celsiusTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahTemp);
+}
+
+let fahLink = document.querySelector("#fah-link");
+fahLink.addEventListener("click", displayFahTemp);
+
+let celsiusTemp = null;
+
 let apiKey = "30e80a3062954953f62b5ad133ae6616";
-let city = "Corralitos";
+let city = "New York";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
