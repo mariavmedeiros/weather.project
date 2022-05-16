@@ -81,4 +81,19 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+function searchCurrentCity(city) {
+  let latitude = city.coords.latitude;
+  let longitude = city.coords.longitude;
+  let apiKey = "30e80a3062954953f62b5ad133ae6616";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
+}
+
+function currentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchCurrentCity);
+}
+let currentButton = document.querySelector("#currentbutton");
+currentButton.addEventListener("click", currentLocation);
+
 search("Tatui");
