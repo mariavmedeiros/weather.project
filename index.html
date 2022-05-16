@@ -21,15 +21,21 @@
       <div class="weather-app-wraper">
         <div class="weather-app">
           <form id="search-form" class="mb-3">
-            <div class="col-9">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="Search"
+                  placeholder="Enter a city"
+                  class="form-control"
+                  id="city-input"
+                />
+              </div>
               <input
-                type="Search"
-                placeholder="Enter a city"
-                class="form-control"
-                id="city-input"
+                type="Submit"
+                value="Search"
+                class="btn btn-primary w-11"
               />
             </div>
-            <input type="Submit" value="Search" class="btn btn-primary w-11" />
           </form>
           <div class="overview">
             <h1 id="city"></h1>
@@ -41,14 +47,9 @@
           <div class="row">
             <div class="col-6">
               <div class="clear fix weather-temperature">
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                  alt="clear"
-                  id="icon"
-                  class="float-left"
-                />
+                <img src="" alt="clear" id="icon" class="float-left" />
                 <div class="float-left">
-                  <strong id="temperature">19</strong>
+                  <strong id="temperature"></strong>
                   <span class="units"
                     ><a href="#" id="cel-link" class="active">°C</a> |<a
                       href="#"
