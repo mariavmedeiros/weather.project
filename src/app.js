@@ -93,7 +93,7 @@ function currentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchCurrentCity);
 }
-let currentButton = document.querySelector("#currentbutton");
+let currentButton = document.querySelector("#currentButton");
 currentButton.addEventListener("click", currentLocation);
 
 search("Tatui");
