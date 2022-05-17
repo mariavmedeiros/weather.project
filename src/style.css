@@ -71,3 +71,6 @@ li:first-letter {
 .weather-temperature active :hover {
   text-decoration: none;
 }
+.col-6 {
+  padding-top: 10px;
+}
