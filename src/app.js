@@ -99,21 +99,6 @@ function displayFahTemp(event) {
   temperatureElement.innerHTML = Math.round(fahTemp);
 }
 
-let fahLink = document.querySelector("#fah-link");
-fahLink.addEventListener("click", displayFahTemp);
-
-function displayCelTemp(event) {
-  event.preventDefault();
-  celLink.classList.add("active");
-  fahLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-}
-let celLink = document.querySelector("#cel-link");
-celLink.addEventListener("click", displayCelTemp);
-
-let celsiusTemp = null;
-
 function search(city) {
   let apiKey = "30e80a3062954953f62b5ad133ae6616";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
